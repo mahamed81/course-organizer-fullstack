@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 // Create Schea 
 const CourseSchema = new Schema({
     name: {
-        type: string,
+        type: String,
         required: true
     },
     courseNum: {
-        type: number
+        type: Number
     },
     date: {
         type: Date,
