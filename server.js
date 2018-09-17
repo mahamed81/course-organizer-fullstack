@@ -11,7 +11,6 @@ app.use(bodyParser.json())
 const db = require('./config/keys').mongoURI;
 
 // connect to mongo
-
 mongoose.connect(db)
     .then(() => console.log('MongoDB Connected...'))
     .catch( err => console.error(err));
