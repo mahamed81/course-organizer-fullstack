@@ -7,6 +7,9 @@ const CourseSchema = new Schema({
         type: String,
         required: true
     },
+    courseDep: {
+        type: String
+    },
     courseNum: {
         type: Number
     },
