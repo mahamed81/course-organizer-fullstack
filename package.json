@@ -4,11 +4,11 @@
   "description": "course organizer for augsburg university software engineering course",
   "main": "server.js",
   "scripts": {
-    "client-install": "yarn --prefix client",
+    "client-install": "cd client && yarn",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "yarn start --prefix client",
+    "client": "cd client && yarn start",
     "dev": "concurrently \"yarn run server\" \"yarn run client\""
   },
   "author": "Brandon Ly",
