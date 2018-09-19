@@ -32,21 +32,10 @@ class Course extends Component {
 
     render() {
         console.log(this.state)
-        const courseList = this.state.courses.map(course => {
-            return <Card>
-                {console.log(course)}
-                <Card.Content >
-                    <Card.Header>{course.name}</Card.Header>
-                    <Card.Meta>{course.department + " " + course.num}</Card.Meta>
-                    <Card.Description>
-                        {course.description}
-                    </Card.Description>
-                </Card.Content>
-            </Card>
-        })
+
         return (
             <Card.Group className="CardGroup">
-                {courseList}
+                {this.props.courseList}
             </Card.Group>
         )
     }
