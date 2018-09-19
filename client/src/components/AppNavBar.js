@@ -22,6 +22,8 @@ export default class AppNavBar extends Component {
         return (
             <div>
                 <Button onClick={this.handleButtonClick}>Menu</Button>
+
+                
             </div>
         )
     }
