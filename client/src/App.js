@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import  Course  from './components/Course';
 import { Button, Card, Image } from 'semantic-ui-react';
+import  HeaderBar  from './components/HeaderBar';
 import 'semantic-ui-css/semantic.min.css';
+import './App.css';
 
 class App extends Component {
       constructor(props) {
@@ -39,8 +41,11 @@ class App extends Component {
   })
     return (
       <div>
-        <h1>Augsburg University Course Catalog</h1>
-        <Course courseList={courseList}/>
+        <HeaderBar/>
+        <div className="cards">
+         <Course courseList={courseList}/>
+        </div>
+        
       </div>
     );
   }
