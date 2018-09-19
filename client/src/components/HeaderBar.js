@@ -10,14 +10,7 @@ import { Image, Icon, Button } from 'semantic-ui-react';
 class HeaderBar extends Component {
     render() {
         return(
-        <div className="headerBar">
-            <div>
-                <h1>Augsburg University Course Catalog</h1>
-                <Button icon><Icon name="bars" size="big"/></Button>
-            </div>
-
-            <Image src={AugsburgLogo} className="logoAugs"></Image>
-        </div>
+            <div></div>
         )
     }
 }

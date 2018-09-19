@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import  Course  from './components/Course';
-import { Button, Card, Image } from 'semantic-ui-react';
-import  HeaderBar  from './components/HeaderBar';
+import { Button, Card, Image, Icon } from 'semantic-ui-react';
+import AugsburgLogo from './assets/Augsburg_Logo_White.png';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 
@@ -11,6 +11,7 @@ class App extends Component {
 
         this.state = {
             // this array contains the data that will be rendered to the card
+            // currently using placeholder data
             courses: [
                 {
                     name: 'Software Engineering',
@@ -41,7 +42,14 @@ class App extends Component {
   })
     return (
       <div>
-        <HeaderBar/>
+        <div className="headerBar">
+            <div>
+                <h1>Augsburg University Course Catalog</h1>
+                <Button icon><Icon name="bars" size="big"/></Button>
+            </div>
+
+            <Image src={AugsburgLogo} className="logoAugs"></Image>
+        </div>
         <div className="cards">
          <Course courseList={courseList}/>
         </div>
