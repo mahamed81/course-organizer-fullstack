@@ -17,8 +17,9 @@ export default class AppNavBar extends Component {
     }
 
     handleButtonClick = () => {this.setState({visible: !this.state.visible})}
-
+    
     render() {
+
         return (
             <div>
                 <Button onClick={this.handleButtonClick}>Menu</Button>
