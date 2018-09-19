@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import  Course  from './components/Course';
 import { Button, Card, Image } from 'semantic-ui-react';
-
 import 'semantic-ui-css/semantic.min.css';
 
 class App extends Component {
@@ -41,7 +40,7 @@ class App extends Component {
   })
     return (
       <div>
-        <h1>Augsburg University</h1>
+        <h1>Augsburg University Course Catalog</h1>
         <Course courseList={courseList}/>
       </div>
     );
