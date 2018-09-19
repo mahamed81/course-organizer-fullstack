@@ -1,4 +1,4 @@
-.CardContent {
+.CardGroup {
     display: flex;
     flex-direction: column;
 }

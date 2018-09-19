@@ -35,7 +35,7 @@ class Course extends Component {
         const courseList = this.state.courses.map(course => {
             return <Card>
                 {console.log(course)}
-                <Card.Content className="CardContent">
+                <Card.Content >
                     <Card.Header>{course.name}</Card.Header>
                     <Card.Meta>{course.department + " " + course.num}</Card.Meta>
                     <Card.Description>
@@ -45,7 +45,7 @@ class Course extends Component {
             </Card>
         })
         return (
-            <Card.Group>
+            <Card.Group className="CardGroup">
                 {courseList}
             </Card.Group>
         )
