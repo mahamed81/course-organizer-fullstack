@@ -28,8 +28,7 @@ class App extends Component {
   render() {
     const courseList = this.state.courses.map(course => {
       return <Card>
-          {console.log(course)}
-          <Card.Content >
+          <Card.Content>
               <Card.Header>{course.name}</Card.Header>
               <Card.Meta>{course.department + " " + course.num}</Card.Meta>
               <Card.Description>

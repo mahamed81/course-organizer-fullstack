@@ -13,9 +13,8 @@ const CourseSchema = new Schema({
     courseNum: {
         type: Number
     },
-    date: {
-        type: Date,
-        default: Date.now
+    courseDate: {
+        type: String
     }
 });
 

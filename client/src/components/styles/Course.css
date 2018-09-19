@@ -1,4 +1,9 @@
+/**TODO: Center the CardGroup class so the classes are centered*/
 .CardGroup {
     display: flex;
     flex-direction: column;
+
+
 }
+
+/**TODO: Create title bar, maybe make it maroon?*/
