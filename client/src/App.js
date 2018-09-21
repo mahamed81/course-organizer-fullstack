@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import  Course  from './components/Course';
-import { Button, Card, Image, Icon, Modal} from 'semantic-ui-react';
+import { Button, Card, Image, Icon, Modal, Breadcrumb} from 'semantic-ui-react';
 import AugsburgLogo from './assets/Augsburg_Logo_White.png';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
@@ -32,14 +32,25 @@ class App extends Component {
     const courseList = this.state.courses.map(course => {
       return <Card fluid color="grey">
           <Card.Content>
-              <Card.Header>{course.name}</Card.Header>
-              <Card.Meta>{course.department + " " + course.num}</Card.Meta>
-            <Card.Description>{course.description}</Card.Description>
-            <Modal trigger={<Button className="prereq">Prequisite(s)</Button>}>
-            <Modal.Content>
-            <Modal.Header>Prequisite(s)</Modal.Header>
-            </Modal.Content>
-           </Modal>
+            <Card.Header>{course.name}</Card.Header>
+            <Card.Meta>{course.department + " " + course.num}</Card.Meta>
+            <Card.Description >
+ 
+            </Card.Description>
+            <Breadcrumb>
+                <Modal trigger={<Breadcrumb.Section className="prereq" link>Prequisite(s)</Breadcrumb.Section>}>
+                    <Modal.Content>
+                    <h3>Prequisite(s)</h3>
+                    </Modal.Content>
+                </Modal>
+                <Breadcrumb.Divider icon='right angle'/>
+                <Modal trigger={<Breadcrumb.Section className="prereq" link>Description</Breadcrumb.Section>}>
+                    <Modal.Content>
+                    <h3>Course Description</h3>
+                    <div>{course.description}</div>
+                    </Modal.Content>
+                </Modal>
+            </Breadcrumb>
           </Card.Content>
       </Card>
   })
