@@ -35,7 +35,7 @@ class App extends Component {
               <Card.Header>{course.name}</Card.Header>
               <Card.Meta>{course.department + " " + course.num}</Card.Meta>
             <Card.Description>{course.description}</Card.Description>
-            <Modal trigger={<Button>Prequisite(s)</Button>}>
+            <Modal trigger={<Button className="prereq">Prequisite(s)</Button>}>
             <Modal.Content>
             <Modal.Header>Prequisite(s)</Modal.Header>
             </Modal.Content>
