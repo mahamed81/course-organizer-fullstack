@@ -48,7 +48,7 @@ class App extends Component {
         <div className="headerBar">
             <div>
                 <h1>Augsburg University Course Catalog</h1>
-                <Button icon><Icon name="bars" size="big"/></Button>
+                <Button icon color="orange"><Icon name="bars" size="big"/></Button>
             </div>
 
             <Image src={AugsburgLogo} className="logoAugs"></Image>
