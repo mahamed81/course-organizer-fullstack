@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import  Course  from './components/Course';
-import { Button, Card, Image, Icon } from 'semantic-ui-react';
+import { Button, Card, Image, Icon, Dropdown, Item } from 'semantic-ui-react';
 import AugsburgLogo from './assets/Augsburg_Logo_White.png';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
@@ -30,13 +30,16 @@ class App extends Component {
     }
   render() {
     const courseList = this.state.courses.map(course => {
-      return <Card>
+      return <Card fluid>
           <Card.Content>
               <Card.Header>{course.name}</Card.Header>
               <Card.Meta>{course.department + " " + course.num}</Card.Meta>
-              <Card.Description>
-                  {course.description}
-              </Card.Description>
+            <Dropdown text="Description">
+            <Dropdown.Item>  {course.description}</Dropdown.Item>
+                  
+            
+            </Dropdown>
+
           </Card.Content>
       </Card>
   })
@@ -50,9 +53,9 @@ class App extends Component {
 
             <Image src={AugsburgLogo} className="logoAugs"></Image>
         </div>
-        <div className="cards">
+        <Card.Group className="cards">
          <Course courseList={courseList}/>
-        </div>
+        </Card.Group>
         
       </div>
     );
