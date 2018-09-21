@@ -18,19 +18,56 @@ class App extends Component {
                     name: 'Software Engineering',
                     num: 395,
                     department: 'CSC',
-                    description: 'Topics: Intro to Software Engineering'
+                    description: 'Topics: Intro to Software Engineering',
+                    prereq:  [
+                        {
+                        name: 'Intro to Programming II',
+                        num: 170,
+                        department: 'CSC',
+                        description: 'Learning how to program!'
+                    }
+                ]
                 },
                 {
                     name: 'Programming Languages and Compilers I',
                     num: 450,
                     department: 'CSC',
-                    description: 'Principles that govern the design and implementation of programming languages. Topics include formal languages, programming language syntax and semantics, parsing, and interpretation. Emphasis on design issues.'
-                }
+                    description: 'Principles that govern the design and implementation of programming languages. Topics include formal languages, programming language syntax and semantics, parsing, and interpretation. Emphasis on design issues.',
+                    prereq:  [
+                        {
+                        name: 'Intro to Programming II',
+                        num: 170,
+                        department: 'CSC',
+                        description: 'Learning how to program!'
+                    }
+                ]
+                },
+                
             ]
         }
     }
 
+
+  createPrereqCard = prereq => {
+      return <Card fluid color="grey">
+          <Card.Content>
+        <Card.Header>{prereq.name}</Card.Header>
+        <Card.Meta>{prereq.department + " " + prereq.num}</Card.Meta>
+        <Card.Description >
+            {prereq.description}
+        </Card.Description>
+    </Card.Content>
+      </Card>
+  }
+
+  /**
+   * This method takes in a course object, and returns a card that is displayed to the page
+   * 
+   */
   createCourseCard = course => {
+      let prereqs = course.prereq.map(prereq => {
+        return this.createPrereqCard(prereq)
+      });
     return <Card fluid color="grey">
     <Card.Content>
         <Card.Header>{course.name}</Card.Header>
@@ -42,6 +79,7 @@ class App extends Component {
             <Modal trigger={<Breadcrumb.Section className="prereq" link>Prequisite(s)</Breadcrumb.Section>}>
                 <Modal.Content>
                 <h3>Prequisite(s)</h3>
+                 <Course courseList={prereqs}/>
                 </Modal.Content>
             </Modal>
             <Breadcrumb.Divider icon='right angle'/>
