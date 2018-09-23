@@ -7,6 +7,15 @@
 }
 
 .logoAugs {
-    padding-left: 60%;
+    position: relative;
+    left: 12vw;
 }
 
+.cards {
+    padding-left: 1vw;
+    padding-top: 2vh;
+}
+
+.prereq {
+    margin-top: 2vh;
+}
