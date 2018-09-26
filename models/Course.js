@@ -15,6 +15,9 @@ const CourseSchema = new Schema({
     },
     courseDate: {
         type: String
+    },
+    prereqs: {
+        type: Object
     }
 });
 
