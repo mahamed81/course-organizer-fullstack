@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Button, Icon
+  Button, Icon,
 } from 'semantic-ui-react'
 
 /**
@@ -12,10 +12,13 @@ export default class AppNavBar extends Component {
 
         return (
         <Button.Group>
+        
             <Button><Icon name="home"/>Home</Button>
             <Button><Icon name="file alternate"/>Transcript</Button>
-            <Button><Icon  name="book" />Courses</Button>
+                <Button><Icon  name="book" />Courses</Button>
         </Button.Group>
+        
         )
     }
+  
 }
