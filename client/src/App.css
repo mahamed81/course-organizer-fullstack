@@ -14,7 +14,8 @@
 
 .cards {
     padding-left: 1vw;
-    padding-top: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }
 
 .prereq {

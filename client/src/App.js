@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import  Course  from './components/Course';
-import {Search, Button, Card, Image, Icon, Modal, Breadcrumb,} from 'semantic-ui-react';
+import {Search, Button, Card, Image, Icon, Modal, Breadcrumb, Segment} from 'semantic-ui-react';
 import AugsburgLogo from './assets/Augsburg_Logo_White.png';
 import AppNavBar from './components/AppNavBar'
 import 'semantic-ui-css/semantic.min.css';
@@ -73,10 +73,12 @@ class App extends Component {
                 <Search  />
                </div>
         </div>
-        
+        <Segment>
         <Card.Group className="cards">
          <Course courseList={courseList}/>
         </Card.Group>
+        </Segment>
+
         
       </div>
       </div>
