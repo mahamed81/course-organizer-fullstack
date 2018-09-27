@@ -26,6 +26,6 @@ mongoose.connect(db)
 app.use('/api/courses',courses)
 
 // the port is either is the port for a platform such as Heroku, or the port 5000 on the localhost
-const port = process.env.PORT || 8088;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server started on ${port}`));

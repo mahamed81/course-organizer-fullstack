@@ -3,21 +3,30 @@ const Schema = mongoose.Schema;
 
 // Create Schea 
 const CourseSchema = new Schema({
-    name: {
+    CourseDepartmentLong: {
         type: String,
         required: true
     },
-    courseDep: {
+    CourseDepartmentShort: {
         type: String
     },
-    courseNum: {
-        type: Number
-    },
-    courseDate: {
+    CourseNumber: {
         type: String
     },
-    prereqs: {
-        type: Object
+    CourseTitle: {
+        type: String
+    },
+    CourseCredit: {
+        type: String
+    },
+    CourseDescription: {
+        type: String
+    },
+    CourseCore: {
+        type: String
+    },
+    CoursePrerequisite: {
+        type: String
     }
 });
 

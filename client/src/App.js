@@ -73,14 +73,14 @@ class App extends Component {
                 <Search  />
                </div>
         </div>
-        <Segment>
-        <Card.Group className="cards">
-         <Course courseList={courseList}/>
-        </Card.Group>
-        </Segment>
+    
+            <Card.Group className="cards">
+            <Course courseList={courseList}/>
+            </Card.Group>
+       
 
-        
-      </div>
+            
+        </div>
       </div>
       
     );

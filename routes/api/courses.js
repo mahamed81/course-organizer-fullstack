@@ -4,13 +4,31 @@ const router = express.Router();
 // Course Model
 const Course = require('../../models/Course');
 
+const ATTRIBUTES = ("CourseDepartmentLong" && "CourseDepartmentShort")
 // @route GET api/courses
 // @desc Get all courses
 // @access Public 
 router.get('/', (req,res) => {
     Course.find()
-        .sort({date: -1})
-        .then(courses => res.json(courses))
+        .sort({CourseDepartmentShort: 1})
+        .then(courses => {
+            
+            /**
+             * This for loop gets rid of the (annoying) \n character at the end 
+             * of each string that is sent from the python script!
+             */
+            for (let i = 0; i < courses.length; i++) {
+                for (atr in courses[i]) {
+                    if (atr === "CourseDepartmentShort" || atr === "CourseDepartmentLong" || atr === "CourseNumber" || atr === "CourseTitle" || atr === "CourseCredit" || atr === "CourseDescription" || atr === "CourseCore" || atr === "CoursePrerequisite") {
+                        courses[i][atr] = courses[i][atr].replace(/(\r\n\t|\n|\r\t)/gm,""); 
+                        console.log(courses[i][atr])
+                    }
+                }
+            }
+
+           
+            return res.json(courses)
+        })
 });
 
 // @route POST api/courses

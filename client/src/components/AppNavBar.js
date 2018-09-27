@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 
 import {
-<<<<<<< HEAD
   Button, Icon,
-=======
-    Sidebar,
-    Button
->>>>>>> 50bce2bbc9120417ed102c917da6eafbbab70ce1
 } from 'semantic-ui-react'
 
 /**
