@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const courses = require('./routes/api/courses');
+const users = require('./routes/api/users');
 
 const app = express();
 
@@ -23,7 +24,8 @@ mongoose.connect(db)
  * addres, we send process that api request in the corresponding route
  * to handle that.
  */
-app.use('/api/courses',courses)
+app.use('/api/courses',courses);
+app.use('api/users/',users);
 
 // the port is either is the port for a platform such as Heroku, or the port 5000 on the localhost
 const port = process.env.PORT || 5000;
