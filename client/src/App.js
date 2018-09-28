@@ -15,30 +15,30 @@ class App extends Component {
             // currently using placeholder data
             courses: [
                 {
-                    name: 'Software Engineering',
-                    num: 395,
-                    department: 'CSC',
-                    description: 'Topics: Intro to Software Engineering',
-                    prereq:  [
+                    courseTitle: 'Software Engineering',
+                    courseNumber: 395,
+                    courseDepartmentShort: 'CSC',
+                    CourseDescription: 'Topics: Intro to Software Engineering',
+                    CoursePrerequisite:  [
                         {
-                        name: 'Intro to Programming II',
-                        num: 170,
-                        department: 'CSC',
-                        description: 'Learning how to program!'
+                        courseTitle: 'Intro to Programming II',
+                        numcourseNumber: 170,
+                        courseDepartmentShort: 'CSC',
+                        CoursePrerequisite: 'Learning how to program!'
                     }
                 ]
                 },
                 {
-                    name: 'Programming Languages and Compilers I',
-                    num: 450,
-                    department: 'CSC',
-                    description: 'Principles that govern the design and implementation of programming languages. Topics include formal languages, programming language syntax and semantics, parsing, and interpretation. Emphasis on design issues.',
-                    prereq:  [
+                    CourseTitle: 'Programming Languages and Compilers I',
+                    CourseNumber: 450,
+                    CourseDepartmentShort: 'CSC',
+                    CourseDescription: 'Principles that govern the design and implementation of programming languages. Topics include formal languages, programming language syntax and semantics, parsing, and interpretation. Emphasis on design issues.',
+                    CoursePrerequisite:  [
                         {
-                        name: 'Intro to Programming II',
-                        num: 170,
-                        department: 'CSC',
-                        description: 'Learning how to program!'
+                            CourseTitle: 'Intro to Programming II',
+                            CourseNumber: 170,
+                            CourseDepartmentShort: 'CSC',
+                            CoursePrerequisite: 'Learning how to program!'
                     }
                 ]
                 },
@@ -51,10 +51,10 @@ class App extends Component {
   createPrereqCard = prereq => {
       return <Card fluid color="grey">
           <Card.Content>
-        <Card.Header>{prereq.name}</Card.Header>
-        <Card.Meta>{prereq.department + " " + prereq.num}</Card.Meta>
+        <Card.Header>{prereq.CourseTitle}</Card.Header>
+        <Card.Meta>{prereq.CourseDepartmentShort + " " + prereq.CourseNumber}</Card.Meta>
         <Card.Description >
-            {prereq.description}
+            {prereq.CourseDescription}
         </Card.Description>
     </Card.Content>
       </Card>
@@ -65,13 +65,13 @@ class App extends Component {
    * 
    */
   createCourseCard = course => {
-      let prereqs = course.prereq.map(prereq => {
+      let prereqs = course.CoursePrerequisite.map(prereq => {
         return this.createPrereqCard(prereq)
       });
     return <Card fluid color="grey">
     <Card.Content>
-        <Card.Header>{course.name}</Card.Header>
-        <Card.Meta>{course.department + " " + course.num}</Card.Meta>
+        <Card.Header>{course.CourseTitle}</Card.Header>
+        <Card.Meta>{course.CourseDepartmentShort + " " + course.CourseNumber}</Card.Meta>
         <Card.Description >
 
         </Card.Description>
@@ -86,7 +86,7 @@ class App extends Component {
             <Modal trigger={<Breadcrumb.Section className="prereq" link>Description</Breadcrumb.Section>}>
                 <Modal.Content>
                 <h3>Course Description</h3>
-                <div>{course.description}</div>
+                <div>{course.CourseDescription}</div>
                 </Modal.Content>
             </Modal>
         </Breadcrumb>
