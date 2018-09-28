@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import  Course  from './components/Course';
 import { Button, Card, Image, Icon, Modal, Breadcrumb} from 'semantic-ui-react';
 import AugsburgLogo from './assets/Augsburg_Logo_White.png';
+import { Provider } from 'react-redux';
 import AppNavBar from './components/AppNavBar'
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
@@ -21,12 +22,12 @@ class App extends Component {
                     description: 'Topics: Intro to Software Engineering',
                     prereq:  [
                         {
-                        name: 'Intro to Programming II',
-                        num: 170,
-                        department: 'CSC',
-                        description: 'Learning how to program!'
-                    }
-                ]
+                            name: 'Intro to Programming II',
+                            num: 170,
+                            department: 'CSC',
+                            description: 'Learning how to program!'
+                        }
+                    ]
                 },
                 {
                     name: 'Programming Languages and Compilers I',
@@ -35,12 +36,12 @@ class App extends Component {
                     description: 'Principles that govern the design and implementation of programming languages. Topics include formal languages, programming language syntax and semantics, parsing, and interpretation. Emphasis on design issues.',
                     prereq:  [
                         {
-                        name: 'Intro to Programming II',
-                        num: 170,
-                        department: 'CSC',
-                        description: 'Learning how to program!'
-                    }
-                ]
+                            name: 'Intro to Programming II',
+                            num: 170,
+                            department: 'CSC',
+                            description: 'Learning how to program!'
+                        }
+                    ]
                 },
                 
             ]
@@ -98,6 +99,7 @@ class App extends Component {
       return this.createCourseCard(course)
   })
     return (
+    <Provider>
       <div>
         <div className="headerBar">
             <div>
@@ -112,6 +114,7 @@ class App extends Component {
         </Card.Group>
         
       </div>
+    </Provider>
     );
   }
 }
