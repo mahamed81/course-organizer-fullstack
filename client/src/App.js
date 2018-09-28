@@ -14,34 +14,36 @@ class App extends Component {
             // this array contains the data that will be rendered to the card
             // currently using placeholder data
             courses: [
-                {
-                    courseTitle: 'Software Engineering',
-                    courseNumber: 395,
-                    courseDepartmentShort: 'CSC',
-                    CourseDescription: 'Topics: Intro to Software Engineering',
-                    CoursePrerequisite:  [
-                        {
-                        courseTitle: 'Intro to Programming II',
-                        numcourseNumber: 170,
-                        courseDepartmentShort: 'CSC',
-                        CoursePrerequisite: 'Learning how to program!'
-                    }
-                ]
-                },
+
                 {
                     CourseTitle: 'Programming Languages and Compilers I',
                     CourseNumber: 450,
                     CourseDepartmentShort: 'CSC',
                     CourseDescription: 'Principles that govern the design and implementation of programming languages. Topics include formal languages, programming language syntax and semantics, parsing, and interpretation. Emphasis on design issues.',
                     CoursePrerequisite:  [
-                        {
-                            CourseTitle: 'Intro to Programming II',
-                            CourseNumber: 170,
-                            CourseDepartmentShort: 'CSC',
-                            CoursePrerequisite: 'Learning how to program!'
-                    }
-                ]
+                            {
+                                CourseTitle: 'Intro to Programming II',
+                                CourseNumber: 170,
+                                CourseDepartmentShort: 'CSC',
+                                CourseDescription: 'Learning how to program!'
+                            }
+                        ]
                 },
+
+                {
+                    CourseTitle: 'Software Engineering',
+                    CourseNumber: 395,
+                    CourseDepartmentShort: 'CSC',
+                    CourseDescription: 'Topics: Software Engineering',
+                    CoursePrerequisite:  [
+                            {
+                                CourseTitle: 'Intro to Programming II',
+                                CourseNumber: 170,
+                                CourseDepartmentShort: 'CSC',
+                                CourseDescription: 'Learning how to program!'
+                            }
+                        ]
+                },               
                 
             ]
         }
@@ -68,6 +70,7 @@ class App extends Component {
       let prereqs = course.CoursePrerequisite.map(prereq => {
         return this.createPrereqCard(prereq)
       });
+
     return <Card fluid color="grey">
     <Card.Content>
         <Card.Header>{course.CourseTitle}</Card.Header>
