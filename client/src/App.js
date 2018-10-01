@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import  Course  from './components/Course';
+//import  Course  from './components/Course';
 import { Button, Card, Image, Icon, Modal, Breadcrumb} from 'semantic-ui-react';
 import AugsburgLogo from './assets/Augsburg_Logo_White.png';
+import { Provider } from 'react-redux';
 import AppNavBar from './components/AppNavBar'
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
@@ -14,36 +15,34 @@ class App extends Component {
             // this array contains the data that will be rendered to the card
             // currently using placeholder data
             courses: [
-
                 {
-                    CourseTitle: 'Programming Languages and Compilers I',
-                    CourseNumber: 450,
-                    CourseDepartmentShort: 'CSC',
-                    CourseDescription: 'Principles that govern the design and implementation of programming languages. Topics include formal languages, programming language syntax and semantics, parsing, and interpretation. Emphasis on design issues.',
-                    CoursePrerequisite:  [
-                            {
-                                CourseTitle: 'Intro to Programming II',
-                                CourseNumber: 170,
-                                CourseDepartmentShort: 'CSC',
-                                CourseDescription: 'Learning how to program!'
-                            }
-                        ]
+                    name: 'Software Engineering',
+                    num: 395,
+                    department: 'CSC',
+                    description: 'Topics: Intro to Software Engineering',
+                    prereq:  [
+                        {
+                            name: 'Intro to Programming II',
+                            num: 170,
+                            department: 'CSC',
+                            description: 'Learning how to program!'
+                        }
+                    ]
                 },
-
                 {
-                    CourseTitle: 'Software Engineering',
-                    CourseNumber: 395,
-                    CourseDepartmentShort: 'CSC',
-                    CourseDescription: 'Topics: Software Engineering',
-                    CoursePrerequisite:  [
-                            {
-                                CourseTitle: 'Intro to Programming II',
-                                CourseNumber: 170,
-                                CourseDepartmentShort: 'CSC',
-                                CourseDescription: 'Learning how to program!'
-                            }
-                        ]
-                },               
+                    name: 'Programming Languages and Compilers I',
+                    num: 450,
+                    department: 'CSC',
+                    description: 'Principles that govern the design and implementation of programming languages. Topics include formal languages, programming language syntax and semantics, parsing, and interpretation. Emphasis on design issues.',
+                    prereq:  [
+                        {
+                            name: 'Intro to Programming II',
+                            num: 170,
+                            department: 'CSC',
+                            description: 'Learning how to program!'
+                        }
+                    ]
+                },
                 
             ]
         }
@@ -53,10 +52,10 @@ class App extends Component {
   createPrereqCard = prereq => {
       return <Card fluid color="grey">
           <Card.Content>
-        <Card.Header>{prereq.CourseTitle}</Card.Header>
-        <Card.Meta>{prereq.CourseDepartmentShort + " " + prereq.CourseNumber}</Card.Meta>
+        <Card.Header>{prereq.name}</Card.Header>
+        <Card.Meta>{prereq.department + " " + prereq.num}</Card.Meta>
         <Card.Description >
-            {prereq.CourseDescription}
+            {prereq.description}
         </Card.Description>
     </Card.Content>
       </Card>
@@ -67,29 +66,28 @@ class App extends Component {
    * 
    */
   createCourseCard = course => {
-      let prereqs = course.CoursePrerequisite.map(prereq => {
+      let prereqs = course.prereq.map(prereq => {
         return this.createPrereqCard(prereq)
       });
-
     return <Card fluid color="grey">
     <Card.Content>
-        <Card.Header>{course.CourseTitle}</Card.Header>
-        <Card.Meta>{course.CourseDepartmentShort + " " + course.CourseNumber}</Card.Meta>
+        <Card.Header>{course.name}</Card.Header>
+        <Card.Meta>{course.department + " " + course.num}</Card.Meta>
         <Card.Description >
 
         </Card.Description>
         <Breadcrumb>
-            <Modal trigger={<Breadcrumb.Section className="prereq" link>Prequisite(s)</Breadcrumb.Section>}>
+            <Modal trigger={<Breadcrumb.Section className="prereq" link><Icon name="archive"/>Prequisite(s)</Breadcrumb.Section>}>
                 <Modal.Content>
                 <h3>Prequisite(s)</h3>
-                 <Course courseList={prereqs}/>
+                 <Card.Group>{prereqs}</Card.Group>
                 </Modal.Content>
             </Modal>
             <Breadcrumb.Divider icon='right angle'/>
-            <Modal trigger={<Breadcrumb.Section className="prereq" link>Description</Breadcrumb.Section>}>
+            <Modal trigger={<Breadcrumb.Section className="prereq" link><Icon name="align left"/>Description</Breadcrumb.Section>}>
                 <Modal.Content>
                 <h3>Course Description</h3>
-                <div>{course.CourseDescription}</div>
+                <div>{course.description}</div>
                 </Modal.Content>
             </Modal>
         </Breadcrumb>
@@ -101,6 +99,7 @@ class App extends Component {
       return this.createCourseCard(course)
   })
     return (
+    <Provider>
       <div>
         <div className="headerBar">
             <div>
@@ -111,10 +110,11 @@ class App extends Component {
             <Image src={AugsburgLogo} className="logoAugs"></Image>
         </div>
         <Card.Group className="cards">
-         <Course courseList={courseList}/>
+         {courseList}
         </Card.Group>
         
       </div>
+    </Provider>
     );
   }
 }
