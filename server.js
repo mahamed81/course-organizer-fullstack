@@ -25,7 +25,7 @@ mongoose.connect(db)
  * to handle that.
  */
 app.use('/api/courses',courses);
-app.use('api/users',users);
+app.use('/api/users',users);
 
 // the port is either is the port for a platform such as Heroku, or the port 5000 on the localhost
 const port = process.env.PORT || 5000;

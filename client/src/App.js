@@ -48,6 +48,9 @@ class App extends Component {
         }
     }
 
+  componentDidMount() {
+
+  }
 
   createPrereqCard = prereq => {
       return <Card fluid color="grey">

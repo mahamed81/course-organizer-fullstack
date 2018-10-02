@@ -15,7 +15,7 @@ const UserSchema = new Schema({
         required: true
     },
     studentId: {
-        type: number,
+        type: Number,
         required: true,
     },
     password: {
@@ -27,7 +27,7 @@ const UserSchema = new Schema({
         required: true
     },
     year: {
-        type: number,
+        type: Number,
         required: true
     }
 
