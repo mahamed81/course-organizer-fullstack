@@ -7,6 +7,10 @@ import AppNavBar from './components/AppNavBar'
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 
+const API = 'http://localhost:5000/api/';
+const COURSE = 'courses';
+const USER = 'users';
+
 class App extends Component {
       constructor(props) {
         super(props);
@@ -48,6 +52,9 @@ class App extends Component {
         }
     }
 
+  componentDidMount() {
+
+  }
 
   createPrereqCard = prereq => {
       return <Card fluid color="grey">
