@@ -18,6 +18,15 @@ mongoose.connect(db)
     .then(() => console.log('MongoDB Connected...'))
     .catch( err => console.error(err));
 
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header(
+            "Access-Control-Allow-Headers",
+            "Origin, X-Requested-With, Content-Type, Accept"
+        );
+        next();
+    });
+    
 /**
  * Below is where we will be defining the routes
  * what this does is, when someone makes a request to a specific

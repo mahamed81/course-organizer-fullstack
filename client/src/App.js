@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-//import  Course  from './components/Course';
-import { Button, Card, Image, Icon, Modal, Breadcrumb} from 'semantic-ui-react';
+import { Search, Card, Image, Icon, Modal, Breadcrumb} from 'semantic-ui-react';
 import AugsburgLogo from './assets/Augsburg_Logo_White.png';
 import { Provider } from 'react-redux';
+import _ from 'lodash';
 import AppNavBar from './components/AppNavBar'
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
@@ -53,6 +53,13 @@ class App extends Component {
     }
 
   componentDidMount() {
+
+    fetch(API + COURSE)
+    .then( res => {
+        return res.json();
+    }).then(data => {
+        console.log(data);
+    })
 
   }
 
@@ -116,6 +123,7 @@ class App extends Component {
 
             <Image src={AugsburgLogo} className="logoAugs"></Image>
         </div>
+        <Search/>
         <Card.Group className="cards">
          {courseList}
         </Card.Group>
