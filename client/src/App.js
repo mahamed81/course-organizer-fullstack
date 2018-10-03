@@ -16,6 +16,7 @@ class App extends Component {
         super(props);
 
         this.state = {
+            value: '',
             // this array contains the data that will be rendered to the card
             // currently using placeholder data
             courses: [
@@ -51,6 +52,33 @@ class App extends Component {
             ]
         }
     }
+
+  componentWillMount() {
+    this.resetComponent();
+  }
+
+  resetComponent = () => this.setState({isLoading: false, results: [], value:''})
+  
+  onResultSelect = (e, {result}) => {
+    console.log(result);
+  }
+
+  handleSearchChange = (e, {value}) => {
+    console.log(value);
+
+    this.setState({isLoading: true, value});
+
+    setTimeout(() => {
+        if (this.state.value.length < 1) return this.resetComponent();
+
+        const re = new RegExp(_.escapeRegExp(this.state.value),'i');
+        const isMatch = result => re.test(result);
+        this.setState({
+            isLoading: false,
+            results: _.filter(this.state.courses, isMatch),
+          })
+    }, 300)
+  }
 
   componentDidMount() {
 
@@ -123,7 +151,11 @@ class App extends Component {
 
             <Image src={AugsburgLogo} className="logoAugs"></Image>
         </div>
-        <Search/>
+        <Search
+        loading={this.isLoading}
+        onResultSelect={this.handleResultSelect}
+        results={this.courses}
+        />
         <Card.Group className="cards">
          {courseList}
         </Card.Group>
