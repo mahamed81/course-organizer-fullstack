@@ -1,0 +1,36 @@
+.headerBar {
+    background-color: #444444;
+    color: white;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    display: flex;
+   
+}
+
+.logoAugs {
+    position: relative;
+    left: 12vw;
+}
+
+.cards {
+    padding-left: 1vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    width: 45vh;
+}
+
+.prereq {
+    margin-top: 2vh;
+    flex-wrap: wrap;
+
+}
+.CourseDepartments{
+   position: relative;
+   left: 5vw;
+}
+.background{
+    background-color: blue;
+}
+.form{
+   display: flex;
+}
