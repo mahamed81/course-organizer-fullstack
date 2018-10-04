@@ -1,8 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
 const courses = require('./routes/api/courses');
+const users = require('./routes/api/users');
 
 const app = express();
 
@@ -17,13 +19,37 @@ mongoose.connect(db)
     .then(() => console.log('MongoDB Connected...'))
     .catch( err => console.error(err));
 
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header(
+            "Access-Control-Allow-Headers",
+            "Origin, X-Requested-With, Content-Type, Accept"
+        );
+        next();
+    });
+
+const checkJwt = jwt({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://<YOUR_AUTH0_DOMAIN>/.well-known/jwks.json`
+  }),
+
+  // Validate the audience and the issuer.
+  audience: '<YOUR_AUTH0_CLIENT_ID>',
+  issuer: `https://<YOUR_AUTH0_DOMAIN>/`,
+  algorithms: ['RS256']
+});
+    
 /**
  * Below is where we will be defining the routes
  * what this does is, when someone makes a request to a specific
  * addres, we send process that api request in the corresponding route
  * to handle that.
  */
-app.use('/api/courses',courses)
+app.use('/api/courses',courses);
+app.use('/api/users',users);
 
 // the port is either is the port for a platform such as Heroku, or the port 5000 on the localhost
 const port = process.env.PORT || 5000;

@@ -4,7 +4,6 @@ const router = express.Router();
 // Course Model
 const Course = require('../../models/Course');
 
-const ATTRIBUTES = ("CourseDepartmentLong" && "CourseDepartmentShort")
 // @route GET api/courses
 // @desc Get all courses
 // @access Public 

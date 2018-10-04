@@ -34,8 +34,3 @@
 .form{
    display: flex;
 }
-
-.user {
-    position: absolute;
-    left: 50%;
-}
