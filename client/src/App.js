@@ -8,7 +8,10 @@ import Catalog from './components/Catalog';
 import Transcript from './components/Transcript';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
+import Auth from './Auth';
 
+const auth = new Auth();
+auth.login();
 class App extends Component {
   render() {
     return (
@@ -17,7 +20,7 @@ class App extends Component {
                 <div>
                    
                     <NavBar/>
-                    
+
                     <Route exact path="/home" component={Home}/>
                     <Route path="/catalog" component={Catalog}/>
                     <Route path="/transcript" component={Transcript}/>

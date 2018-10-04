@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-d
 import AugsburgLogo from '../assets/Augsburg_Logo_White.png';
 import { Button, Icon, Image } from 'semantic-ui-react';
 import './styles/NavBar.css';
-import auth0Client from '../Auth';
+import Auth from '../Auth';
 
-export default class NavBar extends Component {
+class NavBar extends Component {
 
     render() {
         return(
@@ -19,8 +19,11 @@ export default class NavBar extends Component {
                 </Button.Group>	
             </div>
             <Image src={AugsburgLogo} className="logoAugs"></Image>
+            
         </nav>
         );
     }
 
 }
+
+export default withRouter(NavBar);
