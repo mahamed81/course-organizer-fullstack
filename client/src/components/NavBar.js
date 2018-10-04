@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-d
 import AugsburgLogo from '../assets/Augsburg_Logo_White.png';
 import { Button, Icon, Image } from 'semantic-ui-react';
 import './styles/NavBar.css';
-import Auth from '../Auth';
 
 class NavBar extends Component {
+    
 
     render() {
+        
         return(
             <nav className="headerBar">
             <div>
