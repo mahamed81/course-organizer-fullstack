@@ -52,42 +52,18 @@ class Catalog extends Component {
         }
     }
 
-  componentWillMount() {
-    this.resetComponent();
-  }
-
-  resetComponent = () => this.setState({isLoading: false, results: [], value:''})
-  
-  onResultSelect = (e, {result}) => {
-    console.log(result);
-  }
-
-  handleSearchChange = (e, {value}) => {
-    console.log(value);
-
-    this.setState({isLoading: true, value});
-
-    setTimeout(() => {
-        if (this.state.value.length < 1) return this.resetComponent();
-
-        const re = new RegExp(_.escapeRegExp(this.state.value),'i');
-        const isMatch = result => re.test(result);
-        this.setState({
-            isLoading: false,
-            results: _.filter(this.state.courses, isMatch),
-          })
-    }, 300)
-  }
-
   componentDidMount() {
 
     fetch(API + COURSE)
+    /**
+     * 
+     
     .then( res => {
         return res.json();
     }).then(data => {
         console.log(data);
     })
-
+    */
   }
 
   createPrereqCard = prereq => {
@@ -141,10 +117,8 @@ class Catalog extends Component {
   })
     return (
       <div>
-        <Search
-        loading={this.isLoading}
-        onResultSelect={this.handleResultSelect}
-        results={this.courses}
+        <Search 
+            className="cards"
         />
         <Card.Group className="cards">
          {courseList}
