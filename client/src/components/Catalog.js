@@ -3,7 +3,6 @@ import { Search, Card, Image, Icon, Modal, Breadcrumb} from 'semantic-ui-react';
 import AugsburgLogo from '../assets/Augsburg_Logo_White.png';
 import { Provider } from 'react-redux';
 import _ from 'lodash';
-import AppNavBar from './AppNavBar'
 import 'semantic-ui-css/semantic.min.css';
 import './styles/Catalog.css';
 
@@ -141,16 +140,7 @@ class Catalog extends Component {
       return this.createCourseCard(course)
   })
     return (
-    <Provider>
       <div>
-        <div className="headerBar">
-            <div>
-                <h1>Augsburg University Course Catalog</h1>
-                <AppNavBar/>
-            </div>
-
-            <Image src={AugsburgLogo} className="logoAugs"></Image>
-        </div>
         <Search
         loading={this.isLoading}
         onResultSelect={this.handleResultSelect}
@@ -161,7 +151,6 @@ class Catalog extends Component {
         </Card.Group>
         
       </div>
-    </Provider>
     );
   }
 }
