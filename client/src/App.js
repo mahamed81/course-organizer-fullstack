@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Search, Card, Image, Icon, Modal, Breadcrumb} from 'semantic-ui-react';
+import { Button, Image, Icon } from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AugsburgLogo from './assets/Augsburg_Logo_White.png';
 import { Provider } from 'react-redux';
@@ -10,43 +10,27 @@ import Transcript from './components/Transcript';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 
-const API = 'http://localhost:5000/api/';
-const COURSE = 'courses';
-const USER = 'users';
-
 class App extends Component {
-      constructor(props) {
-        super(props);
-
-        this.state = {
-        }
-    }
-
-
-
   render() {
     return (
         <Provider>
             <Router>
-            <div>
-                <div className="headerBar">
-                    <div>
-                        <h1>Augsburg University Course Catalog</h1>
-                        
-                        <Button.Group>
-                            <Link to="/"><Button><Icon name="home"/>Home</Button></Link>           
-                            <Link to="/transcript"><Button><Icon name="file alternate"/>Transcript</Button></Link>
-                            <Link to="/catalog"><Button><Icon  name="book" />Courses</Button></Link>  
-                        </Button.Group>	  
-                    
+                <div>
+                    <div className="headerBar">
+                        <div>
+                            <h1>Augsburg University Course Catalog</h1>                     
+                            <Button.Group>
+                                <Link to="/"><Button><Icon name="home"/>Home</Button></Link>           
+                                <Link to="/transcript"><Button><Icon name="file alternate"/>Transcript</Button></Link>
+                                <Link to="/catalog"><Button><Icon  name="book" />Courses</Button></Link> 
+                            </Button.Group>	
+                        </div>
+                        <Image src={AugsburgLogo} className="logoAugs"></Image>
                     </div>
-
-                <Image src={AugsburgLogo} className="logoAugs"></Image>
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/catalog" component={Catalog}/>
+                    <Route path="/transcript" component={Transcript}/>
                 </div>
-                <Route exact path="/" component={Home}/>
-                <Route path="/catalog" component={Catalog}/>
-                <Route path="/transcript" component={Transcript}/>
-            </div>
             </Router>
         </Provider>
     );
