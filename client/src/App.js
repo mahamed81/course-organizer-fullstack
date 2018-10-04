@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Image, Icon } from 'semantic-ui-react';
+import NavBar from './components/NavBar'; 
 import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
-import AugsburgLogo from './assets/Augsburg_Logo_White.png';
 import { Provider } from 'react-redux';
 import _ from 'lodash';
 import Home from './components/Home';
@@ -16,17 +15,9 @@ class App extends Component {
         <Provider>
             <Router>
                 <div>
-                    <nav className="headerBar">
-                        <div>
-                            <h1>Augsburg University Course Catalog</h1>                     
-                            <Button.Group>
-                                <Link to="/home"><Button><Icon name="home"/>Home</Button></Link>           
-                                <Link to="/transcript"><Button><Icon name="file alternate"/>Transcript</Button></Link>
-                                <Link to="/catalog"><Button><Icon  name="book" />Courses</Button></Link> 
-                            </Button.Group>	
-                        </div>
-                        <Image src={AugsburgLogo} className="logoAugs"></Image>
-                    </nav>
+                   
+                    <NavBar/>
+                    
                     <Route exact path="/home" component={Home}/>
                     <Route path="/catalog" component={Catalog}/>
                     <Route path="/transcript" component={Transcript}/>

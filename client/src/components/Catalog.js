@@ -52,19 +52,6 @@ class Catalog extends Component {
         }
     }
 
-  componentDidMount() {
-
-    fetch(API + COURSE)
-    /**
-     * 
-     
-    .then( res => {
-        return res.json();
-    }).then(data => {
-        console.log(data);
-    })
-    */
-  }
 
   createPrereqCard = prereq => {
       return <Card fluid color="grey">
