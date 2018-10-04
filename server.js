@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
 const courses = require('./routes/api/courses');
 const users = require('./routes/api/users');
 
