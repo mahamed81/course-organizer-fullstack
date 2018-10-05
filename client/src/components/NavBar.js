@@ -10,7 +10,7 @@ class NavBar extends Component {
     render() {
         
         return(
-            <nav className="headerBar">
+        <nav className="headerBar">
             <div>
                 <h1>Augsburg University Course Catalog</h1>                     
                 <Button.Group>
@@ -19,8 +19,7 @@ class NavBar extends Component {
                     <Link to="/catalog"><Button><Icon  name="book" />Courses</Button></Link> 
                 </Button.Group>	
             </div>
-            <Image src={AugsburgLogo} className="logoAugs"></Image>
-            
+            <Image src={AugsburgLogo} className="logoAugs"/>           
         </nav>
         );
     }
