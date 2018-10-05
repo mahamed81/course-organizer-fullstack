@@ -28,6 +28,9 @@ const CourseSchema = new Schema({
     CoursePrerequisite: {
         type: String
     }
+    CourseID: {
+        type int
+    }
 });
 
 /**
