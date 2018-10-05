@@ -1,0 +1,8 @@
+.headerBar {
+    background-color: #444444;
+    color: white;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    display: flex;
+   
+}
