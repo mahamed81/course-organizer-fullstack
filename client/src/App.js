@@ -19,6 +19,7 @@ class App extends Component {
     
       login() {
         this.props.auth.login();
+        this.props.history.replace(`/`)
       }
     
       logout() {
@@ -36,11 +37,7 @@ class App extends Component {
         <nav className="headerBar">
             <div>
                 <h1>Augsburg University Course Catalog</h1>                     
-                <Button.Group>
-                    <Link to="/home"><Button><Icon name="home"/>Home</Button></Link>           
-                    <Link to="/transcript"><Button><Icon name="file alternate"/>Transcript</Button></Link>
-                    <Link to="/catalog"><Button><Icon  name="book" />Courses</Button></Link> 
-                </Button.Group>	
+
                 {
               !isAuthenticated() && (
                   <Button
@@ -54,12 +51,18 @@ class App extends Component {
             }
             {
               isAuthenticated() && (
+                <Button.Group>
+                <Link to="/home"><Button><Icon name="home"/>Home</Button></Link>           
+                <Link to="/transcript"><Button><Icon name="file alternate"/>Transcript</Button></Link>
+                <Link to="/catalog"><Button><Icon  name="book" />Courses</Button></Link> 
+           
                   <Button
                     id="qsLogoutBtn"
                     onClick={this.logout.bind(this)}
                   >
                     Log Out
                   </Button>
+                  </Button.Group>	
                 )
             }
             </div>
