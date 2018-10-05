@@ -38,17 +38,7 @@ class App extends Component {
             <div>
                 <h1>Augsburg University Course Catalog</h1>                     
 
-                {
-              !isAuthenticated() && (
-                  <Button
-                    id="qsLoginBtn"
-                    onClick={this.login.bind(this)}
-                  >
-                    Log In
-                  </Button>
-                )
-    
-            }
+
             {
               isAuthenticated() && (
                 <Button.Group>
@@ -69,7 +59,17 @@ class App extends Component {
             <Image src={AugsburgLogo} className="logoAugs"></Image>
         </nav>                   
  
-                    
+        {
+              !isAuthenticated() && (
+                  <Button
+                    id="qsLoginBtn"
+                    onClick={this.login.bind(this)}
+                  >
+                    Log In
+                  </Button>
+                )
+    
+            }
         </div>
 
     );
