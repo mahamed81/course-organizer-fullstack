@@ -11,6 +11,7 @@ const COURSE = 'courses';
 const USER = 'users';
 
 class Catalog extends Component {
+  
       constructor(props) {
         super(props);
 
@@ -51,6 +52,7 @@ class Catalog extends Component {
             ]
         }
     }
+    
 
   componentWillMount() {
     this.resetComponent();
@@ -61,6 +63,7 @@ class Catalog extends Component {
   onResultSelect = (e, {result}) => {
     console.log(result);
   }
+
 
   handleSearchChange = (e, {value}) => {
     console.log(value);
@@ -75,6 +78,7 @@ class Catalog extends Component {
         this.setState({
             isLoading: false,
             results: _.filter(this.state.courses, isMatch),
+            
           })
     }, 300)
   }
@@ -144,7 +148,8 @@ class Catalog extends Component {
         <Search
         loading={this.isLoading}
         onResultSelect={this.handleResultSelect}
-        results={this.courses}
+        results={this.course}
+       
         />
         <Card.Group className="cards">
          {courseList}
