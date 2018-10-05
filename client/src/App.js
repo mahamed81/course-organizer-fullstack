@@ -1,38 +1,77 @@
 import React, { Component } from 'react';
-import { Button, Image, Icon } from 'semantic-ui-react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import AugsburgLogo from './assets/Augsburg_Logo_White.png';
+import NavBar from './components/NavBar'; 
+import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
+import { Button, Icon, Image } from 'semantic-ui-react';
+import AugsburgLogo from './assets/Augsburg_Logo_White.png';
 import _ from 'lodash';
-import Home from './components/Home';
-import Catalog from './components/Catalog';
-import Transcript from './components/Transcript';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
+import Callback from './components/Callback';
+import Auth from './Auth';
+
+const auth = new Auth();
 
 class App extends Component {
+    goTo(route) {
+        this.props.history.replace(`/${route}`)
+      }
+    
+      login() {
+        this.props.auth.login();
+        this.props.history.replace(`/`)
+      }
+    
+      logout() {
+        this.props.auth.logout();
+      }
+    
+
+
   render() {
+
+    const { isAuthenticated } = this.props.auth;
+    console.log(this.props)
     return (
-        <Provider>
-            <Router>
-                <div>
-                    <div className="headerBar">
-                        <div>
-                            <h1>Augsburg University Course Catalog</h1>                     
-                            <Button.Group>
-                                <Link to="/"><Button><Icon name="home"/>Home</Button></Link>           
-                                <Link to="/transcript"><Button><Icon name="file alternate"/>Transcript</Button></Link>
-                                <Link to="/catalog"><Button><Icon  name="book" />Courses</Button></Link> 
-                            </Button.Group>	
-                        </div>
-                        <Image src={AugsburgLogo} className="logoAugs"></Image>
-                    </div>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/catalog" component={Catalog}/>
-                    <Route path="/transcript" component={Transcript}/>
-                </div>
-            </Router>
-        </Provider>
+        <div>
+        <nav className="headerBar">
+            <div>
+                <h1>Augsburg University Course Catalog</h1>                     
+
+                {
+              !isAuthenticated() && (
+                  <Button
+                    id="qsLoginBtn"
+                    onClick={this.login.bind(this)}
+                  >
+                    Log In
+                  </Button>
+                )
+    
+            }
+            {
+              isAuthenticated() && (
+                <Button.Group>
+                <Link to="/home"><Button><Icon name="home"/>Home</Button></Link>           
+                <Link to="/transcript"><Button><Icon name="file alternate"/>Transcript</Button></Link>
+                <Link to="/catalog"><Button><Icon  name="book" />Courses</Button></Link> 
+           
+                  <Button
+                    id="qsLogoutBtn"
+                    onClick={this.logout.bind(this)}
+                  >
+                    Log Out
+                  </Button>
+                  </Button.Group>	
+                )
+            }
+            </div>
+            <Image src={AugsburgLogo} className="logoAugs"></Image>
+        </nav>                   
+ 
+                    
+        </div>
+
     );
   }
 }
