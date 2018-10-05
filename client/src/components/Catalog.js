@@ -54,6 +54,7 @@ class Catalog extends Component {
     }
     
 
+<<<<<<< HEAD
   componentWillMount() {
     this.resetComponent();
   }
@@ -93,6 +94,8 @@ class Catalog extends Component {
     })
 
   }
+=======
+>>>>>>> 6e42de0cf85f1c1d725ff889346a428f319f4dd7
 
   createPrereqCard = prereq => {
       return <Card fluid color="grey">
@@ -145,11 +148,16 @@ class Catalog extends Component {
   })
     return (
       <div>
+<<<<<<< HEAD
         <Search
         loading={this.isLoading}
         onResultSelect={this.handleResultSelect}
         results={this.course}
        
+=======
+        <Search 
+            className="cards"
+>>>>>>> 6e42de0cf85f1c1d725ff889346a428f319f4dd7
         />
         <Card.Group className="cards">
          {courseList}

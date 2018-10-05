@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
 const courses = require('./routes/api/courses');
 const users = require('./routes/api/users');
 
@@ -26,6 +27,20 @@ mongoose.connect(db)
         );
         next();
     });
+
+const checkJwt = jwt({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://<YOUR_AUTH0_DOMAIN>/.well-known/jwks.json`
+  }),
+
+  // Validate the audience and the issuer.
+  audience: '<YOUR_AUTH0_CLIENT_ID>',
+  issuer: `https://<YOUR_AUTH0_DOMAIN>/`,
+  algorithms: ['RS256']
+});
     
 /**
  * Below is where we will be defining the routes
