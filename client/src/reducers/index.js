@@ -4,7 +4,7 @@
  * a core tenant of React, and not mutate the state.  Instead,
  * it should return a new state object, and return that instead. 
  */
-import { ADD_COURSE } from '../constants/ActionTypes';
+import { ADD_COURSE } from '../constants/action-types';
 
 // initializing an empty state in case of no actions being dispatched
 const initialState = {
@@ -28,4 +28,4 @@ const rootReducer = (state = initialState, action) => {
     }
 };
 
-export const rootReducer;
+export default rootReducer;
