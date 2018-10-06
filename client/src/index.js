@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import store from './store/index';
 import { addCourse } from './actions/index';
 import registerServiceWorker from './registerServiceWorker';

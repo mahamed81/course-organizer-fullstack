@@ -5,12 +5,23 @@ import { Provider } from 'react-redux';
 import _ from 'lodash';
 import 'semantic-ui-css/semantic.min.css';
 import './styles/Catalog.css';
+import { connect } from 'react-redux';
+
+/**
+ * This method takes in as input, the state of the redux store.
+ * It then returns an object containing the courses in the store.
+ * @param {the current state of the redux store} state 
+ * @return {the current courses for the user}
+ */
+const mapStateToProps = state => {
+    return { courses: state.courses };
+};
 
 const API = 'http://localhost:5000/api/';
 const COURSE = 'courses';
 const USER = 'users';
 
-class Catalog extends Component {
+class ConnectedCatalog extends Component {
   
       constructor(props) {
         super(props);
@@ -118,4 +129,5 @@ class Catalog extends Component {
   }
 }
 
+const Catalog = connect(null, mapStateToProps) (ConnectedCatalog);
 export default Catalog;
