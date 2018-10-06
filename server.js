@@ -19,7 +19,10 @@ mongoose.connect(db)
     .then(() => console.log('MongoDB Connected...'))
     .catch( err => console.error(err));
 
-    app.use(function(req, res, next) {
+    /**
+     * This is used to allow requests from the front-end to the backend
+     */
+    app.use((req, res, next) => {
         res.header("Access-Control-Allow-Origin", "*");
         res.header(
             "Access-Control-Allow-Headers",

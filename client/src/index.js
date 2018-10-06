@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-
+import store from './store/index';
+import { addCourse } from './actions/index';
 import registerServiceWorker from './registerServiceWorker';
 import { makeMainRoutes } from './routes';
-
+import { Provider } from 'react-redux';
 const routes = makeMainRoutes();
 
-ReactDOM.render(routes, document.getElementById('root'));
+window.store = store;
+window.addCourse = addCourse;
+
+ReactDOM.render(<Provider store={store}>{routes}</Provider>, document.getElementById('root'));
 registerServiceWorker();
