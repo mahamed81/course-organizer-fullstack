@@ -11,6 +11,7 @@ const COURSE = 'courses';
 const USER = 'users';
 
 class Catalog extends Component {
+  
       constructor(props) {
         super(props);
 
@@ -51,7 +52,9 @@ class Catalog extends Component {
             ]
         }
     }
+    
 
+<<<<<<< HEAD
   componentWillMount() {
     this.resetComponent();
   }
@@ -61,6 +64,7 @@ class Catalog extends Component {
   onResultSelect = (e, {result}) => {
     console.log(result);
   }
+
 
   handleSearchChange = (e, {value}) => {
     console.log(value);
@@ -75,6 +79,7 @@ class Catalog extends Component {
         this.setState({
             isLoading: false,
             results: _.filter(this.state.courses, isMatch),
+            
           })
     }, 300)
   }
@@ -89,6 +94,8 @@ class Catalog extends Component {
     })
 
   }
+=======
+>>>>>>> 6e42de0cf85f1c1d725ff889346a428f319f4dd7
 
   createPrereqCard = prereq => {
       return <Card fluid color="grey">
@@ -141,10 +148,16 @@ class Catalog extends Component {
   })
     return (
       <div>
+<<<<<<< HEAD
         <Search
         loading={this.isLoading}
         onResultSelect={this.handleResultSelect}
-        results={this.courses}
+        results={this.course}
+       
+=======
+        <Search 
+            className="cards"
+>>>>>>> 6e42de0cf85f1c1d725ff889346a428f319f4dd7
         />
         <Card.Group className="cards">
          {courseList}
