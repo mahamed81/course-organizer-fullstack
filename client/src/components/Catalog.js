@@ -5,12 +5,23 @@ import { Provider } from 'react-redux';
 import _ from 'lodash';
 import 'semantic-ui-css/semantic.min.css';
 import './styles/Catalog.css';
+import { connect } from 'react-redux';
+
+/**
+ * This method takes in as input, the state of the redux store.
+ * It then returns an object containing the courses in the store.
+ * @param {the current state of the redux store} state 
+ * @return {the current courses for the user}
+ */
+const mapStateToProps = state => {
+    return { courses: state.courses };
+};
 
 const API = 'http://localhost:5000/api/';
 const COURSE = 'courses';
 const USER = 'users';
 
-class Catalog extends Component {
+class ConnectedCatalog extends Component {
   
       constructor(props) {
         super(props);
@@ -54,48 +65,6 @@ class Catalog extends Component {
     }
     
 
-<<<<<<< HEAD
-  componentWillMount() {
-    this.resetComponent();
-  }
-
-  resetComponent = () => this.setState({isLoading: false, results: [], value:''})
-  
-  onResultSelect = (e, {result}) => {
-    console.log(result);
-  }
-
-
-  handleSearchChange = (e, {value}) => {
-    console.log(value);
-
-    this.setState({isLoading: true, value});
-
-    setTimeout(() => {
-        if (this.state.value.length < 1) return this.resetComponent();
-
-        const re = new RegExp(_.escapeRegExp(this.state.value),'i');
-        const isMatch = result => re.test(result);
-        this.setState({
-            isLoading: false,
-            results: _.filter(this.state.courses, isMatch),
-            
-          })
-    }, 300)
-  }
-
-  componentDidMount() {
-
-    fetch(API + COURSE)
-    .then( res => {
-        return res.json();
-    }).then(data => {
-        console.log(data);
-    })
-
-  }
-=======
->>>>>>> 6e42de0cf85f1c1d725ff889346a428f319f4dd7
 
   createPrereqCard = prereq => {
       return <Card fluid color="grey">
@@ -148,16 +117,8 @@ class Catalog extends Component {
   })
     return (
       <div>
-<<<<<<< HEAD
-        <Search
-        loading={this.isLoading}
-        onResultSelect={this.handleResultSelect}
-        results={this.course}
-       
-=======
         <Search 
             className="cards"
->>>>>>> 6e42de0cf85f1c1d725ff889346a428f319f4dd7
         />
         <Card.Group className="cards">
          {courseList}
@@ -168,4 +129,5 @@ class Catalog extends Component {
   }
 }
 
+const Catalog = connect(null, mapStateToProps) (ConnectedCatalog);
 export default Catalog;
