@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Search, Card, Image, Icon, Modal, Breadcrumb} from 'semantic-ui-react';
-import AugsburgLogo from '../assets/Augsburg_Logo_White.png';
-import { Provider } from 'react-redux';
+import { Search, Card, Icon, Modal, Breadcrumb} from 'semantic-ui-react';
 import _ from 'lodash';
 import 'semantic-ui-css/semantic.min.css';
 import './styles/Catalog.css';
