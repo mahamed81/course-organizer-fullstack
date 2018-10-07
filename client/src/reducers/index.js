@@ -4,11 +4,12 @@
  * a core tenant of React, and not mutate the state.  Instead,
  * it should return a new state object, and return that instead. 
  */
-import { ADD_COURSE } from '../constants/action-types';
+import { ADD_COURSE, UPDATE_USER } from '../constants/action-types';
 
 // initializing an empty state in case of no actions being dispatched
 const initialState = {
-    courses: []
+    courses: [],
+    userData: {}
 };
 
 /**
@@ -23,6 +24,8 @@ const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_COURSE: 
             return {...state, courses: [...state.courses, action.payload]};
+        case UPDATE_USER:
+            return {...state, userData: Object.assign({}, action.payload)};
         default: 
             return state;
     }
