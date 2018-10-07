@@ -7,15 +7,16 @@ const Course = require('../../models/Course');
 // @route GET api/courses
 // @desc Get all courses
 // @access Public 
-router.get('/', (req,res) => {
+/** 
+router.get('/all', (req,res) => {
     Course.find()
         .sort({CourseDepartmentShort: 1})
         .then(courses => {
-            
+            */
             /**
              * This for loop gets rid of the (annoying) \n character at the end 
              * of each string that is sent from the python script!
-             */
+            
             for (let i = 0; i < courses.length; i++) {
                 for (atr in courses[i]) {
                     if (atr === "CourseDepartmentShort" || atr === "CourseDepartmentLong" || atr === "CourseNumber" || atr === "CourseTitle" || atr === "CourseCredit" || atr === "CourseDescription" || atr === "CourseCore" || atr === "CoursePrerequisite") {
@@ -28,6 +29,28 @@ router.get('/', (req,res) => {
            
             return res.json(courses)
         })
+});
+*/ 
+// @route GET api/courses/id
+// @desc Get a course
+// @access Public 
+router.get('/:id', (req,res) => {
+    
+    console.log(req.params)
+    Course.find({CourseDepartmentShort: parseInt(req.params.id)})
+    .then(course => {console.log(course)})
+    .catch(err => res.status(404).json({success: false}));
+});
+
+// @route GET api/courses/department/dep
+// @desc Get courses for a department
+// @access Public 
+router.get('/department/:dep', (req,res) => {
+    
+    console.log(req.params)
+    Course.find({CourseDepartmentShort: req.params.dep})
+    .then(course => {console.log(course)})
+    .catch(err => res.status(404).json({success: false}));
 });
 
 // @route POST api/courses
