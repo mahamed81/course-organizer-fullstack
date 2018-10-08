@@ -1,2 +1,3 @@
 export const ADD_COURSE = "ADD_COURSE";
 export const UPDATE_USER = "UPDATE_USER";
+export const FILTER_DEPARTMENT = "FILTER_DEPARTMENT";
