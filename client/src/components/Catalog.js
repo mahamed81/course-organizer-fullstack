@@ -15,9 +15,6 @@ const mapStateToProps = state => {
     return { courses: state.courses };
 };
 
-const API = 'http://localhost:5000/api/';
-const COURSE = 'courses';
-const USER = 'users';
 
 class ConnectedCatalog extends Component {
   
@@ -109,6 +106,7 @@ class ConnectedCatalog extends Component {
     </Card.Content>
 </Card>
   }
+
   render() {
     const courseList = this.state.courses.map(course => {
       return this.createCourseCard(course)
@@ -118,7 +116,7 @@ class ConnectedCatalog extends Component {
         <Search 
             className="cards"
         />
-        <Dropdown placeholder='State' fluid multiple search selection />
+        <Dropdown placeholder='Departments'  multiple search selection className="searchbar" />
         <Card.Group className="cards">
          {courseList}
         </Card.Group>
@@ -128,5 +126,5 @@ class ConnectedCatalog extends Component {
   }
 }
 
-const Catalog = connect(null, mapStateToProps) (ConnectedCatalog);
+const Catalog = connect(mapStateToProps) (ConnectedCatalog);
 export default Catalog;

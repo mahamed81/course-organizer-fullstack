@@ -7,7 +7,7 @@ const Course = require('../../models/Course');
 // @route GET api/courses
 // @desc Get all courses
 // @access Public 
-router.get('/all', (req,res) => {
+router.get('/', (req,res) => {
     Course.find()
         .sort({CourseDepartmentShort: 1})
         .then(courses => {

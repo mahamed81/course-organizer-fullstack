@@ -4,7 +4,7 @@
  * a core tenant of React, and not mutate the state.  Instead,
  * it should return a new state object, and return that instead. 
  */
-import { ADD_COURSE, UPDATE_USER, FILTER_DEPARTMENT } from '../constants/action-types';
+import { ADD_COURSE, UPDATE_USER, FILTER_DEPARTMENT, GET_COURSE_DATA, GET_COURSE_RECEIVED, GET_ERROR } from '../constants/action-types';
 
 // initializing an empty state in case of no actions being dispatched
 const initialState = {
@@ -29,6 +29,8 @@ const rootReducer = (state = initialState, action) => {
             return {...state, userData: Object.assign({}, action.payload)};
         case FILTER_DEPARTMENT:
             return {...state, filterText: action.payload};
+        case GET_COURSE_RECEIVED:
+            return {...state, courses: action.data};
         default: 
             return state;
     }
