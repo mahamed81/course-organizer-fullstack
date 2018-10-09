@@ -46,7 +46,7 @@ const createCourseCard = course => {
           <Modal trigger={<Breadcrumb.Section className="prereq" link><Icon name="archive"/>Prequisite(s)</Breadcrumb.Section>}>
               <Modal.Content>
               <h3>Prequisite(s)</h3>
-               <Card.Group>TODO</Card.Group>
+               <Card.Group>{course.CoursePrerequisite}</Card.Group>
               </Modal.Content>
           </Modal>
           <Breadcrumb.Divider icon='right angle'/>
