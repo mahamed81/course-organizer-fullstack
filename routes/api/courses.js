@@ -7,16 +7,14 @@ const Course = require('../../models/Course');
 // @route GET api/courses
 // @desc Get all courses
 // @access Public 
-/** 
-router.get('/all', (req,res) => {
+router.get('/', (req,res) => {
     Course.find()
         .sort({CourseDepartmentShort: 1})
         .then(courses => {
-            */
             /**
              * This for loop gets rid of the (annoying) \n character at the end 
              * of each string that is sent from the python script!
-            
+            */
             for (let i = 0; i < courses.length; i++) {
                 for (atr in courses[i]) {
                     if (atr === "CourseDepartmentShort" || atr === "CourseDepartmentLong" || atr === "CourseNumber" || atr === "CourseTitle" || atr === "CourseCredit" || atr === "CourseDescription" || atr === "CourseCore" || atr === "CoursePrerequisite") {
@@ -30,15 +28,24 @@ router.get('/all', (req,res) => {
             return res.json(courses)
         })
 });
-*/ 
+
 // @route GET api/courses/id
 // @desc Get a course
 // @access Public 
 router.get('/:id', (req,res) => {
     
-    console.log(req.params)
-    Course.find({CourseDepartmentShort: parseInt(req.params.id)})
-    .then(course => {console.log(course)})
+    console.log(req.params.id)
+    Course.find({CourseID: req.params.id})
+    .then(course => {
+        console.log(course);
+        for (atr in course) {
+            if (atr === "CourseDepartmentShort" || atr === "CourseDepartmentLong" || atr === "CourseNumber" || atr === "CourseTitle" || atr === "CourseCredit" || atr === "CourseDescription" || atr === "CourseCore" || atr === "CoursePrerequisite") {
+                course[atr] = course[atr].replace(/(\r\n\t|\n|\r\t)/gm,""); 
+                console.log(course[atr])
+            }
+        }
+        return res.json(course);
+    })
     .catch(err => res.status(404).json({success: false}));
 });
 
@@ -47,7 +54,6 @@ router.get('/:id', (req,res) => {
 // @access Public 
 router.get('/department/:dep', (req,res) => {
     
-    console.log(req.params)
     Course.find({CourseDepartmentShort: req.params.dep})
     .then(course => {console.log(course)})
     .catch(err => res.status(404).json({success: false}));
