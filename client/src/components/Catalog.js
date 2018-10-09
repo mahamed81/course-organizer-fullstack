@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Search, Card, Icon, Modal, Breadcrumb} from 'semantic-ui-react';
+import { Search, Card, Icon, Modal, Breadcrumb, Dropdown} from 'semantic-ui-react';
 import _ from 'lodash';
 import 'semantic-ui-css/semantic.min.css';
 import './styles/Catalog.css';
@@ -118,6 +118,7 @@ class ConnectedCatalog extends Component {
         <Search 
             className="cards"
         />
+        <Dropdown placeholder='State' fluid multiple search selection />
         <Card.Group className="cards">
          {courseList}
         </Card.Group>
