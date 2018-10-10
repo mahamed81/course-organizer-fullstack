@@ -16,7 +16,7 @@
     padding-left: 1vw;
     padding-top: 1vh;
     padding-bottom: 1vh;
-    width: 45vh;
+    width: 25vw;
 }
 
 .prereq {
@@ -24,18 +24,19 @@
     flex-wrap: wrap;
 
 }
-.CourseDepartments{
+.CourseDepartments {
    position: relative;
    left: 5vw;
 }
-.background{
+.background {
     background-color: blue;
 }
-.form{
+.form {
    display: flex;
 }
 
-.user {
-    position: absolute;
-    left: 50%;
+.searchbar {
+    margin-top: 5vh;
+    margin-left: 1vw;
+    width: 23vw;
 }
