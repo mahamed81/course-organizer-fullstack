@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Search, Card, Icon, Modal, Breadcrumb, Dropdown} from 'semantic-ui-react';
+import { Search, Card, Dropdown, Grid, Segment, Divider } from 'semantic-ui-react';
 import _ from 'lodash';
 import 'semantic-ui-css/semantic.min.css';
 import './styles/Catalog.css';
 import { connect } from 'react-redux';
+import { createCourseCard } from './CreateCourseCard';
 
 /**
  * This method takes in as input, the state of the redux store.
@@ -15,6 +16,7 @@ const mapStateToProps = state => {
     return { courses: state.courses };
 };
 
+<<<<<<< HEAD
 const createPrereqCard = prereq => {
     return <Card fluid color="grey">
         <Card.Content>
@@ -60,12 +62,13 @@ const createCourseCard = course => {
   </Card.Content>
   </Card>
 }
+=======
+>>>>>>> dev
 
  const ConnectedCatalog = (props) => {
 
-  console.log(props);
-
   let courseList;
+
   if (props.courses !== undefined) {
     if (props.courses.length > 0) {
         courseList = props.courses.map(course => {
@@ -79,9 +82,10 @@ const createCourseCard = course => {
         <Search 
             className="cards"
         />
-        <Dropdown placeholder='Departments'  multiple search selection className="searchbar" />
-        <Card.Group className="cards">
-         {  
+        <Dropdown placeholder='Departments'  multiple search selection className="searchbar"  />
+        <Card.Group className="cards" itemsPerRow={3}>
+         {            
+
           (courseList !== null && courseList !== undefined) && (
             courseList
           )                         
