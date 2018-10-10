@@ -6,6 +6,7 @@ const classname = 'courses';
 
 
 
+
 const complete = (props) => (
   <Segment>
     <Icon name='book'/>
