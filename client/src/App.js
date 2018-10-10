@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavBar from './components/NavBar'; 
 import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { Button, Icon, Image } from 'semantic-ui-react';
@@ -7,7 +6,6 @@ import AugsburgLogo from './assets/Augsburg_Logo_White.png';
 import _ from 'lodash';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
-import Callback from './components/Callback';
 import Auth from './Auth';
 
 const auth = new Auth();
