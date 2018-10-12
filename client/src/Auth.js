@@ -15,6 +15,20 @@ export default class Auth {
     scope: 'openid profile'
   });
 
+  userProfile;
+
+  getAccessToken = () => {
+    const accessToken = localStorage.getItem('access_token');
+    if(!accessToken) {
+      throw new Error('No Access Token ')
+    }
+  }
+
+  getProfile = cb => {
+
+  }
+
+
   login = () => {
     this.auth0.authorize();
   }
