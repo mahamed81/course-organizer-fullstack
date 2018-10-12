@@ -19,6 +19,7 @@ const mapStateToProps = state => {
 
  const ConnectedCatalog = (props) => {
 
+<<<<<<< HEAD
   let courseList;
   if (props.courses !== undefined) {
     if (props.courses.length > 0) {
@@ -29,6 +30,8 @@ const mapStateToProps = state => {
         courseList = props.courses.map(course => {
           return createCourseCard(course)
        })
+=======
+>>>>>>> home
 
        
      }   
