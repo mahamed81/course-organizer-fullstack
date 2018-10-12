@@ -1,12 +1,10 @@
-var mongoose = require('mongoose')
-mongo.connect('mongodb://mongo:ds159772/course-organizer-augsburg')
 import React, { Component } from 'react';
 import {Icon, Step } from 'semantic-ui-react'
 import {Route, BrowserRouter, Link} from 'react-router-dom' 
 import complete from "./TranscriptComponent/complete"
-import progress from './TranscriptComponent/progress'
+import ProgressBar from './TranscriptComponent/ProgressBar'
 import apply from './TranscriptComponent/apply'
-import { mongo } from 'mongoose';
+
 
 export default class Transcript extends Component {
     render() {
@@ -28,12 +26,12 @@ export default class Transcript extends Component {
               </Step>
               </Link>
         
-              <Link to="/transcript/progress">
+              <Link to="/transcript/Progress">
               <Step >
                 <Icon name='book' />
                 <Step.Content>
                   <Step.Title>Progress</Step.Title>
-                  <Step.Description>Your transcript</Step.Description>
+                  <Step.Description>Courses needed to complete major</Step.Description>
                 </Step.Content>
               </Step>
               </Link>
@@ -42,8 +40,8 @@ export default class Transcript extends Component {
               <Step>
                 <Icon name='book' />
                 <Step.Content>
-                  <Step.Title>Courses that need to be</Step.Title>
-                  <Step.Description>Your transcript</Step.Description>
+                  <Step.Title>Transcript</Step.Title>
+                  <Step.Description>Major Transcript</Step.Description>
                 </Step.Content>
               </Step>
         
@@ -52,7 +50,7 @@ export default class Transcript extends Component {
 
                 </Step.Group>
                 <div>
-                    <Route path="/transcript/progress" component={progress}/>
+                    <Route path="/transcript/progress" component={ProgressBar}/>
                     <Route path="/transcript/completed" component={complete}/>
                     <Route path="/transcript/apply" component={apply}/>
 
