@@ -29,12 +29,7 @@ const CourseSchema = new Schema({
         type: String
     },
     CourseID: {
-<<<<<<< HEAD
-        type: Number,
-        required: true
-=======
         type: Number
->>>>>>> origin/Transcript
     }
 });
 
