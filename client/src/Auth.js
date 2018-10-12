@@ -12,8 +12,22 @@ export default class Auth {
     clientID: 'NkJfTB2qohLPCPOJu6rYYoQJgSJRsbiv',
     redirectUri: 'http://localhost:3000/callback',
     responseType: 'token id_token',
-    scope: 'openid'
+    scope: 'openid profile'
   });
+
+  userProfile;
+
+  getAccessToken = () => {
+    const accessToken = localStorage.getItem('access_token');
+    if(!accessToken) {
+      throw new Error('No Access Token ')
+    }
+  }
+
+  getProfile = cb => {
+
+  }
+
 
   login = () => {
     this.auth0.authorize();
