@@ -20,7 +20,6 @@ const mapStateToProps = state => {
  const ConnectedCatalog = (props) => {
 
   let courseList;
-
   if (props.courses !== undefined) {
     if (props.courses.length > 0) {
         courseList = props.courses.map(course => {
