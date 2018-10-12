@@ -29,8 +29,7 @@ const CourseSchema = new Schema({
         type: String
     },
     CourseID: {
-        type: Number,
-        required: true
+        type: Number
     }
 });
 
