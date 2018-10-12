@@ -19,7 +19,7 @@ router.get('/', (req,res) => {
                 for (atr in courses[i]) {
                     if (atr === "CourseDepartmentShort" || atr === "CourseDepartmentLong" || atr === "CourseNumber" || atr === "CourseTitle" || atr === "CourseCredit" || atr === "CourseDescription" || atr === "CourseCore" || atr === "CoursePrerequisite") {
                         courses[i][atr] = courses[i][atr].replace(/(\r\n\t|\n|\r\t)/gm,""); 
-                        console.log(courses[i][atr])
+                        //console.log(courses[i][atr])
                     }
                 }
             }
