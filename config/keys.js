@@ -1,3 +1,3 @@
 module.exports = {
-    mongoURI: 'mongodb://bran:bran123@ds159772.mlab.com:59772/course-organizer-augsburg'
+    mongoURI: 'mongodb://ayavacae:Tirado26@ds241133.mlab.com:41133/courseplaner'
 }
