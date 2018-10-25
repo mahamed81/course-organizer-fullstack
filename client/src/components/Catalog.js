@@ -9,7 +9,7 @@ import { createCourseCard } from './CreateCourseCard';
 /**
  * This method takes in as input, the state of the redux store.
  * It then returns an object containing the courses in the store.
- * @param {the current state of the redux store} state 
+ * @param {the current state of the redux store} state
  * @return {the current courses for the user}
  */
 const mapStateToProps = state => {
@@ -19,39 +19,39 @@ const mapStateToProps = state => {
 
  const ConnectedCatalog = (props) => {
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
   let courseList;
   if (props.courses !== undefined) {
     if (props.courses.length > 0) {
 
       props.courses.sort((a,b) => {
-        
+
       })
         courseList = props.courses.map(course => {
           return createCourseCard(course)
        })
-=======
->>>>>>> home
+//=======
+//>>>>>>> home
 
-       
-     }   
+
+     }
   }
 
     return (
       <div>
-        <Search 
+        <Search
             className="cards"
         />
         <Dropdown placeholder='Departments'  multiple search selection className="searchbar"  />
         <Card.Group className="cards" itemsPerRow={3}>
-         {            
+         {
 
           (courseList !== null && courseList !== undefined) && (
             courseList
-          )                         
+          )
          }
         </Card.Group>
-        
+
       </div>
     );
 }
