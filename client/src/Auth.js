@@ -1,6 +1,6 @@
 /**
  * This file contains auto-generated code from the Auth0 website to allow authentication from
- * their servers.  
+ * their servers.
  */
 
 import auth0 from 'auth0-js';
@@ -8,11 +8,11 @@ import history from './components/history';
 
 export default class Auth {
   auth0 = new auth0.WebAuth({
-    domain: 'augsburgbrandon.auth0.com',
-    clientID: 'NkJfTB2qohLPCPOJu6rYYoQJgSJRsbiv',
-    redirectUri: 'http://localhost:3000/callback',
-    responseType: 'token id_token',
-    scope: 'openid profile'
+  domain: 'erikchan.auth0.com',
+  clientID: 'dUTnMkjzGiMK3scYsUn_eeddtj5CJSA1',
+  redirectUri: 'http://localhost:3000/callback',
+  responseType: 'token id_token',
+  scope: 'openid profile'
   });
 
   userProfile;
@@ -65,7 +65,7 @@ export default class Auth {
   }
 
   isAuthenticated() {
-    // Check whether the current time is past the 
+    // Check whether the current time is past the
     // Access Token's expiry time
     let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
